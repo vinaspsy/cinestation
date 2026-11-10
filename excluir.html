@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineStation — Apagar minha conta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fundo: #0b0d12;
+  --camada-1: #1a1c20;
+  --camada-2: #23252a;
+  --tinta: #ffffff;
+  --tinta-suave: rgba(255, 255, 255, 0.87);
+  --tinta-apagada: rgba(255, 255, 255, 0.72);
+  --azul: #2f6bff;
+  --azul-claro: #dce7ff;
+  --erro: #ff8a80;
+  --raio: 12px;
+  --e1: 8px; --e2: 16px; --e3: 24px; --e4: 32px;
+}
+* { box-sizing: border-box; }
+html { background: #0b0d12; color-scheme: dark; }
+body {
+  margin: 0; background: #0b0d12; color: var(--tinta-suave);
+  font-family: "Inter", system-ui, sans-serif; font-size: 16px; line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+main { max-width: 720px; margin: 0 auto; padding: var(--e3) var(--e2) var(--e4); }
+header img { display: block; height: 40px; width: auto; margin-bottom: var(--e3); }
+h1, h2 { font-family: "Sora", system-ui, sans-serif; color: var(--tinta); font-weight: 600; line-height: 1.25; }
+h1 { font-size: 28px; margin: 0 0 var(--e2); }
+h2 { font-size: 22px; margin: 0 0 var(--e2); }
+section { background: var(--camada-1); border-radius: var(--raio); padding: var(--e3) var(--e2); margin-top: var(--e2); }
+p { margin: 0 0 var(--e2); }
+ul { margin: 0 0 var(--e2); padding-left: var(--e3); }
+li { margin-bottom: var(--e1); }
+section > :last-child { margin-bottom: 0; }
+strong { color: var(--tinta); font-weight: 600; }
+a { color: var(--azul-claro); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.rodape { margin-top: var(--e3); }
+label { display: block; font-weight: 500; color: var(--tinta); margin-bottom: var(--e1); }
+input {
+  width: 100%; font: inherit; color: var(--tinta); background: var(--camada-2);
+  border: 1px solid rgba(255, 255, 255, 0.5); border-radius: var(--raio);
+  padding: 12px var(--e2); margin-bottom: var(--e2);
+}
+button {
+  font: inherit; font-weight: 500; font-size: 16px; color: #ffffff; background: var(--azul);
+  border: 0; border-radius: var(--raio); padding: 12px var(--e3); min-height: 48px; cursor: pointer;
+}
+button[disabled] { opacity: 0.5; cursor: default; }
+.secundario { background: var(--camada-2); }
+.erro { color: var(--erro); margin-top: var(--e2); }
+.aviso { color: var(--tinta); }
+[hidden] { display: none !important; }
+
+</style>
+</head>
+<body>
+<main>
+<header><img src="cinestation-horizontal-escuro.svg" alt="CineStation"></header>
+<h1>Apagar minha conta</h1>
+<section id="passo-entrar">
+<h2>Entre para continuar</h2>
+<p>Use o e-mail e a senha da sua conta CineStation.</p>
+<form id="form-entrar">
+<label for="email">E-mail</label>
+<input id="email" type="email" autocomplete="email" required>
+<label for="senha">Senha</label>
+<input id="senha" type="password" autocomplete="current-password" required>
+<button type="submit" id="botao-entrar" class="secundario">Continuar</button>
+</form>
+</section>
+<section id="passo-confirmar" hidden>
+<h2>Confirme</h2>
+<p class="aviso">Isso apaga na hora e para sempre sua conta, seus servidores e senhas, perfis, histórico, Minha Lista, favoritos e contas de legenda. Não dá para desfazer.</p>
+<button type="button" id="botao-apagar">Apagar para sempre</button>
+</section>
+<section id="passo-fim" hidden>
+<h2>Sua conta foi apagada.</h2>
+<p>Seus dados foram removidos.</p>
+</section>
+<p id="erro" class="erro" role="alert" hidden></p>
+<p class="rodape"><a href="index.html">Privacidade e segurança</a></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const cliente = supabase.createClient("https://qidaidwlroshawinatyw.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpZGFpZHdscm9zaGF3aW5hdHl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI5NzkyNzksImV4cCI6MjEwODU1NTI3OX0.pYarN7Gj5D3yhALVWainvqAIvj6bejaVITmdCdunbPA", { auth: { persistSession: false, autoRefreshToken: false } });
+const $ = (id) => document.getElementById(id);
+function erro(texto) { $("erro").textContent = texto; $("erro").hidden = !texto; }
+const FALHA = "Não foi possível apagar agora. Tente de novo.";
+$("form-entrar").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  erro("");
+  $("botao-entrar").disabled = true;
+  let entrou = false;
+  try {
+    const { error } = await cliente.auth.signInWithPassword({ email: $("email").value.trim(), password: $("senha").value });
+    if (error) {
+      erro(error.name === "AuthRetryableFetchError" ? FALHA : "E-mail ou senha incorretos.");
+    } else {
+      entrou = true;
+    }
+  } catch (_) {
+    erro(FALHA);
+  } finally {
+    $("botao-entrar").disabled = false;
+  }
+  if (!entrou) return;
+  $("senha").value = "";
+  $("passo-entrar").hidden = true;
+  $("passo-confirmar").hidden = false;
+});
+$("botao-apagar").addEventListener("click", async () => {
+  erro("");
+  $("botao-apagar").disabled = true;
+  let apagou = false;
+  try {
+    const { error } = await cliente.rpc("apagar_minha_conta");
+    apagou = !error;
+  } catch (_) {
+    apagou = false;
+  }
+  if (!apagou) {
+    try { await cliente.auth.signOut(); } catch (_) {}
+    $("botao-apagar").disabled = false;
+    $("passo-confirmar").hidden = true;
+    $("passo-entrar").hidden = false;
+    erro(FALHA);
+    return;
+  }
+  try { await cliente.auth.signOut(); } catch (_) {}
+  $("passo-confirmar").hidden = true;
+  $("passo-fim").hidden = false;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineStation — Privacidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fundo: #0b0d12;
+  --camada-1: #1a1c20;
+  --camada-2: #23252a;
+  --tinta: #ffffff;
+  --tinta-suave: rgba(255, 255, 255, 0.87);
+  --tinta-apagada: rgba(255, 255, 255, 0.72);
+  --azul: #2f6bff;
+  --azul-claro: #dce7ff;
+  --erro: #ff8a80;
+  --raio: 12px;
+  --e1: 8px; --e2: 16px; --e3: 24px; --e4: 32px;
+}
+* { box-sizing: border-box; }
+html { background: #0b0d12; color-scheme: dark; }
+body {
+  margin: 0; background: #0b0d12; color: var(--tinta-suave);
+  font-family: "Inter", system-ui, sans-serif; font-size: 16px; line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+main { max-width: 720px; margin: 0 auto; padding: var(--e3) var(--e2) var(--e4); }
+header img { display: block; height: 40px; width: auto; margin-bottom: var(--e3); }
+h1, h2 { font-family: "Sora", system-ui, sans-serif; color: var(--tinta); font-weight: 600; line-height: 1.25; }
+h1 { font-size: 28px; margin: 0 0 var(--e2); }
+h2 { font-size: 22px; margin: 0 0 var(--e2); }
+section { background: var(--camada-1); border-radius: var(--raio); padding: var(--e3) var(--e2); margin-top: var(--e2); }
+p { margin: 0 0 var(--e2); }
+ul { margin: 0 0 var(--e2); padding-left: var(--e3); }
+li { margin-bottom: var(--e1); }
+section > :last-child { margin-bottom: 0; }
+strong { color: var(--tinta); font-weight: 600; }
+a { color: var(--azul-claro); }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.rodape { margin-top: var(--e3); }
+label { display: block; font-weight: 500; color: var(--tinta); margin-bottom: var(--e1); }
+input {
+  width: 100%; font: inherit; color: var(--tinta); background: var(--camada-2);
+  border: 1px solid rgba(255, 255, 255, 0.5); border-radius: var(--raio);
+  padding: 12px var(--e2); margin-bottom: var(--e2);
+}
+button {
+  font: inherit; font-weight: 500; font-size: 16px; color: #ffffff; background: var(--azul);
+  border: 0; border-radius: var(--raio); padding: 12px var(--e3); min-height: 48px; cursor: pointer;
+}
+button[disabled] { opacity: 0.5; cursor: default; }
+.secundario { background: var(--camada-2); }
+.erro { color: var(--erro); margin-top: var(--e2); }
+.aviso { color: var(--tinta); }
+[hidden] { display: none !important; }
+
+</style>
+</head>
+<body>
+<main>
+<header><img src="cinestation-horizontal-escuro.svg" alt="CineStation"></header>
+<h1>Privacidade e segurança</h1>
+<p>Aqui explicamos, sem juridiquês, quais dados o CineStation guarda, para que servem e como cuidamos deles.</p>
+<section>
+<h2>Quem somos</h2>
+<p>O CineStation é um player para assistir aos conteúdos do seu servidor de IPTV. O CineStation não vende nem fornece canais, filmes ou séries: você usa o servidor que já contratou.</p>
+<p>Para falar com a gente sobre seus dados: <strong>cinestation.contato@gmail.com</strong></p>
+</section>
+<section>
+<h2>O que guardamos e para quê</h2>
+<ul>
+<li><strong>E-mail e senha da conta CineStation:</strong> para você entrar no app. A senha da conta fica com o serviço de login, nunca no app.</li>
+<li><strong>Seus servidores de IPTV (endereço, usuário e senha):</strong> para tocar seus conteúdos e para eles aparecerem sozinhos em todos os seus aparelhos, como a TV e o celular.</li>
+<li><strong>Perfis, histórico e progresso, Minha Lista e canais favoritos:</strong> para você continuar de onde parou e receber sugestões do que assistir.</li>
+<li><strong>PIN do controle dos pais:</strong> guardamos só um código embaralhado, que não dá para transformar de volta no PIN.</li>
+<li><strong>Contas de legenda (OpenSubtitles e SubDL):</strong> só se você conectar, para buscar legendas com a sua conta.</li>
+</ul>
+</section>
+<section>
+<h2>Como protegemos</h2>
+<ul>
+<li>As senhas dos servidores e das contas de legenda ficam num <strong>cofre criptografado</strong> na nossa nuvem. Só o app do próprio cliente usa essas senhas, para tocar os conteúdos. Ninguém consulta sua senha.</li>
+<li>No seu aparelho, essas senhas e o seu acesso à conta também ficam <strong>criptografados</strong>.</li>
+<li>Cada pessoa só consegue ler os próprios dados. Uma conta não enxerga nada de outra.</li>
+<li>A conversa entre o app e a nossa nuvem é sempre criptografada.</li>
+<li>Nada é copiado para backups automáticos do celular ou da TV.</li>
+</ul>
+</section>
+<section>
+<h2>O que não fazemos</h2>
+<ul>
+<li>Não vendemos nem emprestamos seus dados.</li>
+<li>Não mostramos anúncios.</li>
+<li>Não usamos empresas de métricas ou de rastreamento.</li>
+</ul>
+<p>Usamos outros serviços só para o app funcionar:</p>
+<ul>
+<li><strong>Supabase:</strong> a nossa nuvem, onde ficam a conta e o cofre.</li>
+<li><strong>TMDB e OMDb:</strong> capas, sinopses e notas. Eles recebem só o nome do filme ou da série, nunca os seus dados.</li>
+<li><strong>OpenSubtitles e SubDL:</strong> só se você conectar sua conta, para buscar legendas.</li>
+</ul>
+</section>
+<section>
+<h2>Um limite de qualquer app de IPTV</h2>
+<p>O sistema usado pelos servidores de IPTV (Xtream) coloca o seu usuário e a sua senha no endereço de cada vídeo. Muitos servidores não usam criptografia nesse endereço. Isso vale para qualquer app de IPTV, não só para o CineStation.</p>
+<p>Na prática, quem controla a rede onde você está conectado (por exemplo, um Wi-Fi público) pode conseguir ver esses dados. Dica: assista em redes de confiança, como a da sua casa.</p>
+</section>
+<section>
+<h2>Seus direitos</h2>
+<p>Pela Lei Geral de Proteção de Dados (LGPD), você pode ver, corrigir e apagar os seus dados quando quiser.</p>
+<ul>
+<li><strong>Apagar a conta pelo app:</strong> Ajustes › Conta › Apagar minha conta. Tudo é apagado na hora e não dá para desfazer.</li>
+<li><strong>Apagar a conta sem o app:</strong> <a href="https://vinaspsy.github.io/cinestation/excluir.html">https://vinaspsy.github.io/cinestation/excluir.html</a></li>
+<li><strong>Dúvidas ou pedidos:</strong> cinestation.contato@gmail.com</li>
+</ul>
+<p>Esta página também fica na internet: <a href="https://vinaspsy.github.io/cinestation/">https://vinaspsy.github.io/cinestation/</a></p>
+</section>
+<section>
+<h2>Atualização</h2>
+<p>Última atualização: 10 de novembro de 2026.</p>
+</section>
+<p class="rodape"><a href="excluir.html">Apagar minha conta</a></p>
+</main>
+</body>
+</html>
