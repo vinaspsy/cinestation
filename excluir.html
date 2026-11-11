@@ -132,22 +132,29 @@ main { max-width: var(--largura); margin: 0 auto; padding: 0 var(--e2); }
 .abertura.doc h1 { font-size: clamp(26px, 7vw, 48px); letter-spacing: -0.02em; margin-bottom: var(--e2); }
 .abertura.doc .data { display: block; margin-top: var(--e2); }
 
-.indice { margin: 0 0 var(--e3); font-size: 15px; }
+/* Menu lateral das seções (computador); no celular vira "Nesta página", recolhido. */
+.documento { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; align-items: start; }
+.indice { position: sticky; top: 96px; font-size: 15px; }
 .indice summary { list-style: none; cursor: pointer; color: var(--tinta); font-weight: 500; }
 .indice summary::-webkit-details-marker { display: none; }
-.indice ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--e1); }
+.indice ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--linha); }
 .indice li a {
-  display: block; padding: 6px 12px; border-radius: var(--raio-md);
-  background: var(--camada-1); color: var(--tinta-suave); text-decoration: none; line-height: 1.4;
+  display: block; padding: 6px 0 6px var(--e2); margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--tinta-apagada); text-decoration: none; line-height: 1.4;
 }
-.indice li a:hover { background: var(--camada-3); color: var(--tinta); }
-@media (min-width: 761px) { .indice summary { display: none; } }
-@media (max-width: 760px) {
-  .indice { background: var(--camada-1); border-radius: var(--raio-lg); padding: 12px var(--e2); }
+.indice li a:hover { color: var(--tinta); border-left-color: var(--tinta-apagada); }
+@media (min-width: 900px) { .indice summary { display: none; } }
+@media (max-width: 899px) {
+  .documento { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .indice {
+    position: static; margin: 0 0 var(--e3);
+    background: var(--camada-1); border-radius: var(--raio-lg); padding: 12px var(--e2);
+  }
   .indice summary::after { content: "+"; float: right; color: var(--tinta-apagada); }
   .indice[open] summary::after { content: "−"; }
-  .indice ol { display: block; margin-top: var(--e1); }
-  .indice li a { background: none; padding: 8px 0; border-radius: 0; color: var(--tinta-apagada); }
+  .indice ol { border-left: 0; margin-top: var(--e1); }
+  .indice li a { padding: 8px 0; margin: 0; border-left: 0; }
   .indice li + li a { border-top: 1px solid var(--linha); }
 }
 
