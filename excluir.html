@@ -87,7 +87,7 @@ button[disabled] { opacity: 0.5; cursor: default; }
 <p id="erro" class="erro" role="alert" hidden></p>
 <p class="rodape"><a href="index.html">Privacidade e segurança</a></p>
 </main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
 <script>
 const cliente = supabase.createClient("https://qidaidwlroshawinatyw.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpZGFpZHdscm9zaGF3aW5hdHl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI5NzkyNzksImV4cCI6MjEwODU1NTI3OX0.pYarN7Gj5D3yhALVWainvqAIvj6bejaVITmdCdunbPA", { auth: { persistSession: false, autoRefreshToken: false } });
 const $ = (id) => document.getElementById(id);
