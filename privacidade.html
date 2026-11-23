@@ -218,7 +218,7 @@ input:focus-visible { border-color: var(--tinta); }
 <header class="abertura doc">
 <h1>Privacidade e segurança</h1>
 <p>Aqui explicamos, sem juridiquês, quais dados o CineStation guarda, para que servem e como cuidamos deles.</p>
-<span class="data">Atualizada em 11 de novembro de 2026</span>
+<span class="data">Atualizada em 23 de novembro de 2026</span>
 </header>
 <div class="documento">
 <details class="indice" id="indice">
@@ -226,6 +226,7 @@ input:focus-visible { border-color: var(--tinta); }
 <ol>
 <li><a href="#quem-somos">Quem somos</a></li>
 <li><a href="#o-que-guardamos-e-para-que">O que guardamos e para quê</a></li>
+<li><a href="#assistente">Assistente de indicações</a></li>
 <li><a href="#como-protegemos">Como protegemos</a></li>
 <li><a href="#o-que-nao-fazemos">O que não fazemos</a></li>
 <li><a href="#um-limite-de-qualquer-app-de-iptv">Um limite de qualquer app de IPTV</a></li>
@@ -249,6 +250,24 @@ input:focus-visible { border-color: var(--tinta); }
 <li><strong>Data e versão dos Termos de uso que você aceitou:</strong> para registrar o seu aceite.</li>
 </ul>
 </section>
+<section id="assistente">
+<h2>Assistente de indicações</h2>
+<p>O Assistente é um chat em que você pede, do seu jeito, algo para assistir e recebe títulos que existem no seu servidor. Ele só funciona se você ligar, e você pode desligar quando quiser em Ajustes.</p>
+<p>Para responder, o Assistente envia a um serviço de inteligência artificial:</p>
+<ul>
+<li>a mensagem que você escreveu;</li>
+<li>até 10 títulos que o perfil assistiu ou pôs na Minha Lista, só com o nome e os gêneros;</li>
+<li>os nomes, anos e gêneros dos títulos do seu servidor que combinam com o pedido.</li>
+</ul>
+<p>Ele nunca envia o seu e-mail, as suas senhas, nem o endereço, o usuário ou a senha do seu servidor.</p>
+<p>O serviço de inteligência artificial está configurado para não guardar o que recebe nem o que responde: esses dados servem só para montar a resposta e são descartados em seguida.</p>
+<p>Guardamos na sua conta:</p>
+<ul>
+<li><strong>As conversas que trouxeram indicações:</strong> o que você pediu, os títulos indicados e o motivo de cada um. Assim você revê as indicações em qualquer aparelho, sem gastar mensagem. Ficam as 30 mais recentes de cada perfil; as mais antigas são apagadas sozinhas.</li>
+<li><strong>Quantas mensagens você usou no dia:</strong> para controlar o limite diário.</li>
+</ul>
+<p>Para apagar as conversas: use a lixeira de cada uma ou &quot;Apagar todas as conversas&quot; na tela de conversas do Assistente. Desligar o Assistente em Ajustes também apaga todas, de todos os perfis.</p>
+</section>
 <section id="como-protegemos">
 <h2>Como protegemos</h2>
 <ul>
@@ -269,6 +288,7 @@ input:focus-visible { border-color: var(--tinta); }
 <p>Usamos outros serviços só para o app funcionar:</p>
 <ul>
 <li><strong>Supabase:</strong> a nossa nuvem, onde ficam a conta e o cofre.</li>
+<li><strong>Groq:</strong> o serviço de inteligência artificial do Assistente, só se você ligar o Assistente. Recebe apenas o que está descrito em <a href="#assistente">Assistente de indicações</a> e não guarda esses dados.</li>
 <li><strong>TMDB e OMDb:</strong> capas, sinopses e notas. Eles recebem só o nome do filme ou da série, nunca os seus dados.</li>
 <li><strong>OpenSubtitles e SubDL:</strong> só se você conectar sua conta, para buscar legendas.</li>
 </ul>
@@ -284,7 +304,7 @@ input:focus-visible { border-color: var(--tinta); }
 <ul>
 <li><strong>Apagar a conta pelo app:</strong> Ajustes › Conta › Apagar minha conta. Tudo é apagado na hora e não dá para desfazer.</li>
 <li><strong>Apagar a conta sem o app:</strong> <a href="https://vinaspsy.github.io/cinestation/excluir.html">https://vinaspsy.github.io/cinestation/excluir.html</a></li>
-<li><strong>Apagar só parte dos dados, sem apagar a conta:</strong> no app, exclua um perfil (apaga o histórico, a Minha Lista e os favoritos dele), remova um servidor em Ajustes › Servidores (apaga o endereço, o usuário e a senha dele) ou tire um item de &quot;Continuar assistindo&quot; (apaga o progresso dele). Para pedir outra exclusão, escreva para cinestation.contato@gmail.com.</li>
+<li><strong>Apagar só parte dos dados, sem apagar a conta:</strong> no app, exclua um perfil (apaga o histórico, a Minha Lista, os favoritos e as conversas do Assistente dele), apague conversas do Assistente, remova um servidor em Ajustes › Servidores (apaga o endereço, o usuário e a senha dele) ou tire um item de &quot;Continuar assistindo&quot; (apaga o progresso dele). Para pedir outra exclusão, escreva para cinestation.contato@gmail.com.</li>
 <li><strong>Dúvidas ou pedidos:</strong> cinestation.contato@gmail.com</li>
 </ul>
 <p>Esta página também fica na internet: <a href="https://vinaspsy.github.io/cinestation/privacidade.html">https://vinaspsy.github.io/cinestation/privacidade.html</a></p>
